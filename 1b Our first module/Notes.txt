@@ -1,0 +1,22 @@
+What is a module in AngularJS
+		A module is a container for different parts of your application i.e controllers,
+		services,directives, filters etc
+
+		You can think of a module as a Main() method in other types of applications
+
+	How to create a module
+		var app = angular.module('myModule',[])
+		The second parameter is concerned with dependencies
+
+	What is a controller in angular
+		In angular a controller is a JavaScript function. The job of the controller is to build a model 
+		for the view to display
+
+	How to create a controller in angular
+		var myController = function($scope){
+			$scope.message = 'Angular Tutorial';
+		}
+
+		$scope is an angular object that is passed to the controller function by the angular framework automatically.
+		We attach the model to this scope object which will then be available in the view. Within the view we use the 
+		data binding expression to retrieve the data from the scope object and display it
