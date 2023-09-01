@@ -1,0 +1,13 @@
+Two way databinding in AngularJS
+	The Two Way Data-Binding keeps the model and the view in sync at all times, that is a change in the
+	model updates the view and a change in the view updates the model
+
+	Changes to the MODEL Updates the VIEW
+	Changes to the VIEW updates the MODEL
+
+	Binding expression updates the view when the model changes {{message}}
+	ng-model directive updates the model when the view changes
+	ng-model directive can be used with
+		input
+		select
+		textarea
