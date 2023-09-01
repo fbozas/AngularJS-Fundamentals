@@ -1,0 +1,14 @@
+Controllers in AngularJS
+
+	What happens if the controller name is misspelled
+	When the controller name is misspelled, 2 things happen
+		An error is raised. To see the error, use browser developer tools
+		The binding expression in the view that are in the scope of the controller will
+		not be evaluated
+
+	What happens if a property name in the binding expression is misspelled
+		Expression evaluation in angular is forgiving meaning if you misspell a property name in the
+		binding expression, angular will not report any error. It wll simply return undefined.
+
+	How to create module,controller and register the controller with the module, all in one line
+		see allInOneLine.js
