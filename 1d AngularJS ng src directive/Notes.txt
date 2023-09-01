@@ -1,0 +1,11 @@
+AngularJS ng src directive
+	Using a binding expression with the image src attribute, results in a 404 error
+
+	Reason of 404 error 
+		As soon as the DOM is parsed, an attempt is made is to fetch the image from the
+		server. At this point, AngularJS binding expression that is specified with the 
+		src attribute is not evaluated. Hence 404 (not found) error
+
+	To fix the 404 error use the ng-src directive
+		ng-src directive attribute ensures that a request is issued only after AngularJS has
+		evaluated the binding expression
