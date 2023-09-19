@@ -1,0 +1,10 @@
+AngularJS ng repeat directive
+	ng-repeat directive in Angular
+	Nesting ng-repeat with an example
+	Take indexes of ng-repeat
+
+	ng-repeat directive is similar with foreach loop in other languages
+	To find the index of an item in the collection use $index property
+	To get the index of the parent element there are two ways:
+		Use $parent.$index or
+		Use ng-init="parentIndex=$index"
