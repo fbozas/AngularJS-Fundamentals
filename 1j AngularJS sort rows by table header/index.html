@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myModule">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+<body ng-app="myModule">
+    <!--STEP 3-->
+    <div ng-controller="myController"> 
+        <table>
+            <tr>
+                <th ng-click="sortData('name')">
+                     Name
+                     <div ng-class="getSortClass('name')"></div>
+                </th>
+                <th ng-click="sortData('dateOfBirth')">
+                    Date of Birth
+                    <div ng-class="getSortClass('dateOfBirth')"></div>
+                </th>
+                <th ng-click="sortData('gender')">
+                    Gender
+                    <div ng-class="getSortClass('gender')"></div>
+                </th>
+                <th ng-click="sortData('salary')">
+                    Salary
+                    <div ng-class="getSortClass('salary')"></div>
+                </th>
+            </tr>
+            
+            <tr ng-repeat="employee in employees | orderBy: sortColumn: reverseSort"> 
+                <td>{{employee.name}}</td>
+                <td>{{employee.dateOfBirth | date: "dd/MM/yyyy"}}</td>
+                <td>{{employee.gender}}</td>
+                <td>{{employee.salary}}</td>
+            </tr>
+        </table>
+
+          
+    </div>
+
+</body>
+</html>

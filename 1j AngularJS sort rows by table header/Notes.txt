@@ -1,0 +1,34 @@
+AngularJS sort rows by table header
+	How to implement bidirectional sort in AngularJS
+
+	We should at first add this property on app.js		
+        $scope.reverseSort = false;
+
+	This will define if we sort by ascending or descending order
+		<tr ng-repeat="employee in employees | orderBy: sortColumn: reverseSort"> 
+
+	There will be a function that changes this property from true to false and vice versa (toggle)	
+		
+        $scope.sortData = function(column){
+            $scope.reverseSort = ($scope.sortColumn == column) ? !$scope.reverseSort : false;
+            $scope.sortColumn = column;
+        }
+
+	This method also defines the column we sort by
+
+	And we need another method that will return a css class that designs the arrow icon (up or bottom)
+		
+        $scope.getSortClass = function(column){
+            if($scope.sortColumn == column){
+                return $scope.reverseSort ? 'arrow-down' : 'arrow-up';
+            }
+
+            return '';
+        }
+
+	Finally we will call these methods on ths by clicking each one
+		
+        <th ng-click="sortData('name')">
+                Name
+                <div ng-class="getSortClass('name')"></div>
+        </th>
