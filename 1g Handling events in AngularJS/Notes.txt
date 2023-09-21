@@ -1,0 +1,8 @@
+Handling events in AngularJS
+	1. Display the list of tecnhologies in a table
+	2. Provide the ability to like and dislike a technology
+	3.Increment the likes and dislikes when the respicyive buttons are clicked
+
+	To handle a click event we will use a directive called ng-click and we will call the appropriate methods like this		
+                    <input type="button" value="Like" ng-click="incrementLikes(technology)">
+                    <input type="button" value="Dislike" ng-click="incrementDislikes(technology)">
