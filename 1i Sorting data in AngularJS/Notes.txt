@@ -1,0 +1,12 @@
+Sorting data in AngularJS
+	To sort the data in Angular
+		Use orderByFilter
+			{{ orderBy_Expression | orderBy: expression: reverse }}
+
+		Example: ng-repeat = "employee in employees | orderBy:'salary':false"
+
+		To sort in ascending order, set reverse to false
+		To sort in descending order, set reverse to true
+
+		You can also use + and - to sort in ascending and descending order respectively
+			ng-repeat = "employee in employees | orderBy: '+salary'"
