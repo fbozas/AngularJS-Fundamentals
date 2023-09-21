@@ -1,0 +1,26 @@
+AngularJS filters
+	Filters can do 3 different things
+		Format, Sort and Filter data
+
+	Filters can be used with a binding expression or a directive
+
+	To apply a filter use pipe character (|)
+
+	Filters for formatting data
+		lowercase: Formats all characters to lowercase
+		uppercase: Formats all characters to uppercase
+		number: Formats a number as text, includes comma as thousands seperator and the number of
+			decimal places can be specified
+		currency: Formats a number as a currency. $ is default. Custom currency and decimal places can be specified
+		date: Formats date to a string based on the requested format
+
+	limitTofilter: Can be used to limit the number of rows or characters in a string
+		{{expression | limitTo: limit : begin}}
+	i.e
+		<tr ng-repeat="employee in employees | limitTo:rowLimit:0"> 
+		// 0 Shows the begining index of rows (which employee will appeared as first one)
+	
+	Look now the result. When you change the value of dropdown the number of results are automatically changed.
+	This is the power of two way data binding 
+		Changes to the MODEL Updates the VIEW
+		Changes to the VIEW updates the MODEL
