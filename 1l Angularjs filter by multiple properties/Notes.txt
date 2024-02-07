@@ -1,0 +1,4 @@
+
+12.Angularjs filter by multiple properties
+
+	Multiple search textboxes. Each box searching a specific property
