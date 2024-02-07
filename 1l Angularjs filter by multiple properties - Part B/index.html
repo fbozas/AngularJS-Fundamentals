@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myModule">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body ng-app="myModule">
+    <div ng-controller="myController"> 
+        <input type="text" placeholder="Search City & Name" ng-model="searchText"/>
+        <br><br>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Salary</th>
+                <th>City</th>
+            </tr>  
+            
+            <tr ng-repeat="employee in employees | filter:search"> 
+                <td>{{employee.name}}</td>
+                <td>{{employee.gender}}</td>
+                <td>{{employee.salary}}</td>
+                <td>{{employee.city }}</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
