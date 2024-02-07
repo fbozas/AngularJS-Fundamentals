@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myModule">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <style>
+        th{
+            cursor: pointer;
+        }
+        .arrow-up{
+            width: 0;
+            height:0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-bottom: 10px solid black;
+            display: inline-block;
+        }
+        .arrow-down{
+            width: 0;
+            height:0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-bottom: 10px solid black;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body ng-app="myModule">
+    <div ng-controller="myController"> 
+        <!--STEP 1-->        
+        <!-- Search: <input type="text" placeholder="Search employees" ng-model="searchText"/> -->
+        Search: <input type="text" placeholder="Search employees" ng-model="searchText.city"/>
+        <br><br>
+        <table>
+            <tr>
+                <th>
+                     Name
+                </th>
+                <th>
+                    Gender
+                </th>
+                <th>
+                    Salary
+                </th>
+                <th>
+                    City
+                </th>
+            </tr>
+            
+            <tr ng-repeat="employee in employees | filter: searchText"> 
+                <td>{{employee.name}}</td>
+                <td>{{employee.gender}}</td>
+                <td>{{employee.salary}}</td>
+                <td>{{employee.city }}</td>
+            </tr>
+        </table>
+
+          
+    </div>
+
+</body>
+</html>
