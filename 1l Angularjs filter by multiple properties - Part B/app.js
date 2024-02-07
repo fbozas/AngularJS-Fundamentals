@@ -12,7 +12,6 @@ var myApp = angular
                 
                     $scope.employees = employees;
 
-                    // STEP 2
                     $scope.search = function(item){
                         if($scope.searchText == undefined){
                             return true;
