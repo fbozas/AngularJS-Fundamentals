@@ -1,0 +1,36 @@
+15. AngularJS ng init directive
+
+	The ng-init directive allows you to evaluate an expression in the current scope
+
+	Add this code on the vscode and see the result 
+		
+		<body ng-app="myModule">
+    			<div ng-init="employees = [
+                		{ name: 'Ben', gender: 1, city: 'London', salary: 50000 },
+                		{ name: 'Sara', gender: 2,  city: 'Chennai', salary: 68000 },
+                		{ name: 'Mark', gender: 1,  city: 'Chicago', salary: 57000 },
+                		{ name: 'Pam', gender: 2,  city: 'London', salary: 53000 },
+                		{ name: 'Todd', gender: 3,  city: 'Chennai', salary: 60000 }                        
+            		]">         
+        
+            			<table>
+                			<tr>
+                    				<th> Name</th>
+                    				<th>Gender</th>
+                    				<th>City</th>
+                			</tr>
+                			<!-- STEP 1 -->
+                			<tr ng-repeat="employee in employees"> 
+                    				<td>{{employee.name}}</td>
+                    				<td>{{employee.gender}}</td>
+                    				<td>{{employee.city}}</td>
+                			</tr>
+            			</table>
+          
+    			</div>
+		</body>
+
+
+	In a real world application you should use a controller instead of ng-init to initialize values on a scope
+
+	ng-init should only be used for aliasing special properties of ng-repeat directive (look at the code for more)

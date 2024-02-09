@@ -1,0 +1,34 @@
+14 ng hide and ng show in AngularJS
+
+	ng-hide and ng-show directives are used to control the visibility to control the visibility of the HTML elements
+	
+	Copy paste the previous project and add this code
+		<input type="checkbox" ng-model="hideSalary"/> Hide Salary
+
+		
+                <th ng-hide="hideSalary">
+                    Salary
+                </th>
+
+                <td ng-hide="hideSalary">{{employee.salary}}</td>
+
+	If you try ng-show the result will be the same 
+		
+        	<input type="checkbox" ng-model="hideSalary"/> Show Salary	
+		
+                <th ng-show="hideSalary">
+                    Salary
+                </th>	
+		
+                <td ng-show="hideSalary">{{employee.salary}}</td>
+
+	
+	Mask and unmask Salary column values
+		
+        	<input type="checkbox" ng-model="hideSalary"/> Hide Salary
+		
+                <th ng-hide="hideSalary">Salary</th>
+                <th ng-show="hideSalary">Salary</th>	
+		
+                <td ng-hide="hideSalary">{{employee.salary}}</td>
+                <td ng-show="hideSalary"> ### </td>
