@@ -1,0 +1,5 @@
+Create a custom filter in AngularJS
+	Is a custom filter that returns a function
+	Use the filter function to create a custom filter
+
+	Create a custom filter to convert integer values 1,2,3 to Male, Female and Not disclosed respectively
