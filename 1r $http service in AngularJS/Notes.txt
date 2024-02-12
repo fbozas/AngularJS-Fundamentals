@@ -1,0 +1,94 @@
+
+18. $http service in AngularJS
+
+	$http service is used to make HTTP requests to remote server
+
+	$http service is a function that has a single input parameter i.e a configuration object
+
+	Example: The following example issues a GET request to the specific URL
+
+		$http({
+			method: 'GET',
+			url: 'EmployeeService.asmx/GetAllEmployees'
+		});
+
+	Complete list of properties supported by the configuration object
+
+	If you copy paste the frontend project (the previous one) and refactor the controller like this the output will be 
+	the same
+
+		var app = angular
+        		.module("myModule", [])
+        		.controller("myController", function ($scope, $http) {
+
+            			$http(
+                			{
+                    				method: 'GET', 
+                   			 	url: "http://localhost:55113/EmployeeService.asmx/GetAllEmployees"
+                			})
+                 			.then(function (response) {
+                     				$scope.employees = response.data;
+                 			});
+        			});
+
+	Shortcut methods like get, post, put, delete etc are also available to be used with $http service
+
+	Example: Using the shortcut method get()
+
+		$http.get('EmployeeService.asmx/GetAllEmployees')
+
+	$http service returns a promise object
+		$scope.employees = $http.get('EmployeeService.asmx/GetAllEmployees');
+
+	Instead use the then() method
+
+		$scope.employees = $http.get('EmployeeService.asmx/GetAllEmployees')
+					.then(function(response){
+						$scope.employees = response.data;
+					})
+
+	Use the $log service to log the response object to the console (You should inject $log service)
+
+		$scope.employees = $http.get('EmployeeService.asmx/GetAllEmployees')
+					.then(function(response){
+						$scope.employees = response.data;
+						$log.info(response);
+					});
+
+	If there is an error processing the request, the errorCallback function is called
+
+	 	$http(
+                	{
+                    		method: 'GET', 
+                    		url: "http://localhost:55113/EmployeeService.asmx/GetAllEmployees"
+                	})
+                 	.then(function (response) {
+                     		$scope.employees = reason.statusText;
+                     		$log.info(response);
+                 	},function(reason){
+                    		$scope.error = reason.data;
+                    		$log.info(reason);
+                 	});
+
+	If you want to see the error on the page you can do this on index.html
+		
+    		<div ng-controller="myController">
+        		<div>{{error}}</div>
+		</div>
+
+	You can also create seperate functions and associate them as successCallback and errorCallback functions
+		
+            var successCallback = function(response){
+            	$scope.employees = response.data;
+            }
+            var errorCallback =function(reason){
+           	$scope.error = reason.statusText;
+            }
+
+                 
+            $http(
+                {
+                    method: 'GET', 
+                    url: "http://localhost:55113/EmployeeService.asmx/GetAllEmployees"
+                })
+                 .then(successCallback,errorCallback);
