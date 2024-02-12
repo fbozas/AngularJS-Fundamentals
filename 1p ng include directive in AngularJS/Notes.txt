@@ -1,0 +1,60 @@
+
+16. ng include directive in AngularJS
+
+	ng include directive is used to embed an HTML page into another HTML page
+
+	This technique is extremely useful when you want to reuse a specific view in multiple pages in your application
+
+	The value for ng-include directive
+
+		Can be the name of the HTML page that you want to reuse
+			<div ng-include="EmployeeList.html"></div>
+
+		OR
+		A property on the $scope object that points to the reusable HTML page
+			<div ng-include="employeeList"></div>
+
+
+	Code First step
+
+		On index.html add this code
+			
+			<body ng-app="myModule">
+    				<div ng-controller="myController">   
+        				<div ng-include="employeeView"></div>         
+    				</div>
+			</body>
+
+		 Add a file named EmployeeTable.html with this code
+
+			<table>
+    				<thead>
+        				<tr>
+            					<th>Name</th>
+            					<th>Gender</th>
+            					<th>Salary</th>
+        				</tr>
+    				</thead>
+    				<tbody>
+        				<tr ng-repeat="employee in employees"> 
+            					<td>{{employee.name}}</td>
+            					<td>{{employee.gender}}</td>
+            					<td>{{employee.salary}}</td>
+        				</tr>
+    				</tbody>
+			</table>
+
+		And on app.js
+
+			var myApp = angular
+                		.module('myModule', [])
+                		.controller('myController', function($scope){
+                    			var employees = [
+                       				// employees
+                    			];
+                
+                    		$scope.employees = employees;
+                    		$scope.employeeView = "EmployeesTable.html";
+                	});
+
+	For the last step look at the code
